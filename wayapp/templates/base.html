@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+            crossorigin="anonymous"
+        />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+            crossorigin="anonymous"
+        />
+        <!-- Bootstrap core CSS -->
+        <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="jumbotron.css" rel="stylesheet">        
+
+        <title>{% block title %} UR Match {% endblock %}</title>
+
+    </head>
+
+    <body>
+        <div class="main_content">
+        <nav class="navbar navbar-expand-lg fixed-top navbar-dark" style="background-color: #0c219b;">
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li><a class="nav-item nav-link" id="home" href="/">Home &emsp;</a></li>                
+                <li><a class="nav-item nav-link" id="affiliations" href="/affiliations">Our Partners &emsp;</a></li>         
+            </ul>
+            <ul class="navbar-nav mt-2 mt-lg-0">   
+                <li class="nav-item nav-link" align="right">
+                    <form class="form-inline my-2 my-lg-0">
+                        <div class="navbar-nav">
+                            {% if user.is_authenticated  %}
+                                <span class="navbar-text"> &emsp;&emsp;Welcome, &nbsp; <i>{{ user.username }} </i> ! &emsp;&emsp; </span>
+                                <a class="nav-item nav-link" id="present_user" href="/present_user">My Profile &emsp;</a>
+                                <a class="nav-item nav-link" id="logout" href="/logout">Log Out &emsp;&emsp;</a>
+                            {% else %}
+                                <a class="nav-item nav-link" id="login" href="/login/">Login &emsp;</a>
+                                <a class="nav-item nav-link" id="signUp" href="/register">Sign Up &emsp;</a>
+                            {% endif %}             
+                        </div>              
+                    </form>
+                </li>
+            
+                <li class="nav-item nav-link" align="right">
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">&emsp; Search &emsp;</button>
+                    </form>
+                </li>
+            </ul>        
+        </nav>
+        </div>
+        </div>
+
+        <div class="navbar-nav" me-auto my-2 my-lg-0>
+            <p>Navbar</p>
+            <hr>
+        </div>
+    
+    <!--*******************************************************************************************-->       
+    <!--Look for other classes for this div-->
+    <div class="main_content">  <!--class="container-fluid"-->
+        {% block content %} {% endblock %}
+    </div>
+
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"
+    ></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"
+    ></script>
+    <script
+        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"
+    ></script>     
+
+    </body>
+</html>
