@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+{% block title %} User's Profile {% endblock %}
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="//style.css" rel="stylesheet", id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+<style>
+    body {font-family: Arial;}
+    
+    /* Style the tab */
+    .tab {
+      overflow: hidden;
+      border: 1px solid #ccc;
+      background-color: #f1f1f1;
+    }
+    
+    /* Style the buttons inside the tab */
+    .tab button {
+      background-color: inherit;
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      transition: 0.3s;
+      font-size: 17px;
+    }
+    
+    /* Change background color of buttons on hover */
+    .tab button:hover {
+      background-color: #ddd;
+    }
+    
+    /* Create an active/current tablink class */
+    .tab button.active {
+      background-color: #ccc;
+      color: blue;
+    }
+    
+    /* Style the tab content */
+    .tabcontent {
+      display: none;
+      padding: 6px 12px;
+      border: 1px solid #ccc;
+      border-top: none;
+    }
+</style>
+    
+    <br>
+    <div class="col" align="right">
+        {% if not JDQuery_set %}
+            <a href="#" class="btn btn-primary btn-lg" role="button">Search Internship Positions </a>
+            <br><br>
+            <p> The Job Description list is empty. <br>
+                Feel free to log back in at a later time. <br>
+                Thank you for your patience. </p>    
+        {% elif posts.curricular_skills is None %}
+            <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Search Internship Positions </a>
+        {% else %}
+            <a href="/matched_results" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Search Internship Positions </a>
+        {% endif %}
+    </div>
+    <br>
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="profile-img">
+                    <img style="border-radius: 50%" width="190" height="200"src="https://www.geneva.edu/news/2017/10/gc-graphic_11-reasons-why-your-summer-internship-was-totally-worth-it_eddy.jpg" alt={{ user.username }}/>
+                    <p></p>
+                    <button type="button" class="btn btn-primary">&emsp;&emsp; Change Photo &emsp;&emsp; </button>
+                    <input type="file" name="file"/>
+                </div>
+            </div>
+            <div class="col-md-8">       
+                <div class="profile-head">
+                    <h5> {{ user.username }} </h5>                                       
+                    </br>
+                    <b> A bit about me. </b> 
+                    <p> {{ bio.biography }} </p>
+                </div>                
+            </div>            
+        </div>                       
+    </div>   
+
+    <div class="tab">
+        <button class="tablinks" onclick="openContent(event, 'UserAccount')">User Account</button>
+        <button class="tablinks" onclick="openContent(event, 'JobPost')">Curriculum Vitae</button>        
+    </div>
+    
+    <div id="UserAccount" class="tabcontent">
+        <h3> My Personal Profile </h3>   
+        <br>    
+        <form method="post" class="form-group">        
+            {% csrf_token %}
+            {{ accform|crispy }}                  
+            <br>
+            <button type="submit" class="btn btn-success">Update</button>   
+            <br>
+        </form>           
+    </div>   
+
+    <div id="JobPost" class="tabcontent">
+        <h3> JOB POST ACCOUNT </h3>        
+        <br><br>   
+        {% if posts.curricular_skills is None %}            
+            <form method="POST" enctype="multipart/form-data" class="form-group">
+                {% csrf_token %}
+                {{ form|crispy }}                               
+                <br>
+                <button type="submit" class="btn btn-success">Create</button>
+                <br>
+            </form>  
+        {% else  %}            
+            <form method="POST" enctype="multipart/form-data" class="form-group">
+                {% csrf_token %}
+                {{ posts|crispy }}                           
+                <br>
+                <button type="submit" class="btn btn-success">Update</button>
+                <br>
+            </form>
+        {% endif %}
+    </div>    
+    
+<script>
+    function openContent(evt, contentName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(contentName).style.display = "block";
+    evt.currentTarget.className += " active";
+    }
+</script>
+
+{% endblock %}
