@@ -167,3 +167,77 @@ pkill -f python
 python manage.py runserver 0.0.0.0:8000
 python3 manage.py runserver 0.0.0.0:8000
 python3 -m venv venv
+ls
+rm -rf venv
+ls -a
+git add myenv
+ls 
+git add .
+ls -a
+git add myenv
+ls
+python3 -m venv myenv
+apt install python3.12-venv
+python3 -m venv myenv
+ls
+python3 manage.py runserver
+python3 manage.py runserver 0.0.0.0:8000
+git add .
+git commit -m "Add VM"
+git push origin main
+git pull origin main
+git config --global pull.rebase
+git pull origin main
+git pull --rebase
+git pull origin main
+ls
+git push origin main
+python3 manage.py runserver
+curl -v http://127.0.0.1:8000
+nslookup wilmatch.paragoniu.app
+curl -v http://127.0.0.53:8000
+curl -v wilmatch.paragoniu.app
+python3 manage.py runserver 127.0.0.53:8000
+python3 manage.py runserver 127.0.0.1:8000
+python3 manage.py runserver 0.0.0.0:8000
+curl -v http://127.0.0.1:8000
+.\myenv\Scripts\activate
+source myenv/bin/activate
+.\myenv\Scripts\activate
+python3 manage.py runserver
+python3 manage.py runserver 127.0.0.1:8000
+python3 manage.py runserver
+which python
+source myenv/bin/activate
+which python
+.\myenv\Scripts\activate
+which pip
+pip
+pip install django
+pip install -r requirements.txt
+python manage.py runserver 0.0.0.0:8000
+source myenv/bin/activate
+pip install tailwind
+pip install crispy-forms
+pip install crispy_forms
+python manage.py runserver 0.0.0.0:8000
+pip install crispy-forms
+source myenv/bin/activate
+pip install crispy-forms
+pip install crispy-forms==1.9.0
+pip install --upgrade pip
+pip install crispy-forms
+pip install crispy-forms==1.9.0
+git 
+git@github.com:fponcio/UR_match.git
+git clone https://github.com/fponcio/UR_match.git
+source myenv/bin/activate
+git clone https://github.com/fponcio/UR_match.git
+pip install crispy-forms
+pip install django-crispy-forms
+pip install crispy-bootstrap4
+python manage.py runserver 0.0.0.0:8000
+source myenv/bin/activate
+python manage.py runserver 0.0.0.0:8000
+source myenv/bin/activate
+python manage.py showmigrations
