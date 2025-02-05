@@ -40,7 +40,7 @@ ALLOWED_HOSTS = [
     "wilmatch.paragoniu.app",
     ]
 
-CSRF_TRUSTED_ORIGINS = ["https://pride-sent-african-vol.trycloudflare.com/"]
+# CSRF_TRUSTED_ORIGINS = ["https://pride-sent-african-vol.trycloudflare.com/"]
 
 # Application definition
 INSTALLED_APPS = [
