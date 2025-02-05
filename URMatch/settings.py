@@ -41,15 +41,11 @@ ALLOWED_HOSTS = [
     ]
 
 
+CSRF_TRUSTED_ORIGINS = ['https://wilmatch.paragoniu.app']
+CSRF_ALLOWED_ORIGINS = ['https://wilmatch.paragoniu.app']
 
-CSRF_COOKIE_SECURE = True
-
-
-CSRF_TRUSTED_ORIGINS = [    
-    'wilmatch.paragoniu.app',
-    'https://wilmatch.paragoniu.app',
-    ]
-
+CORS_ORIGINS_WHITELIST = ['https://wilmatch.paragoniu.app']
+CORS_ALLOWED_ORIGINS = ['https://wilmatch.paragoniu.app']
 
 # Application definition
 INSTALLED_APPS = [
