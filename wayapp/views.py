@@ -4,6 +4,8 @@ from django.shortcuts import redirect, render
 from .models import JobPost, JobDescription
 from .forms import RegisterForm, JobPostForm, JobDescriptionForm
 from django.contrib.auth import login, logout
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User
 from sentence_transformers import SentenceTransformer, util
 
@@ -17,7 +19,7 @@ def home(request):
     # return HttpResponse("Hello World!")
     return render(request, "home.html")
     
-
+@csrf_exempt
 def register(request):
     #group = CustomGroup.objects.create(groupname='Employers')
     if request.method == 'POST':
