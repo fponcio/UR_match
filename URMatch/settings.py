@@ -40,10 +40,16 @@ ALLOWED_HOSTS = [
     "wilmatch.paragoniu.app",
     ]
 
+
+
+CSRF_COOKIE_SECURE = True
+
+
 CSRF_TRUSTED_ORIGINS = [    
     'wilmatch.paragoniu.app',
     'https://wilmatch.paragoniu.app',
     ]
+
 
 # Application definition
 INSTALLED_APPS = [
@@ -66,7 +72,6 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
