@@ -30,7 +30,7 @@ MEDIA_URL = '/media/'
 SECRET_KEY = 'django-insecure-=ulm4b8uh8_5($$fz13nm!sc-t8x!w3t+yd4@&^&(a$fqs_db6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     "0.0.0.0",
@@ -41,8 +41,8 @@ ALLOWED_HOSTS = [
     ]
 
 CSRF_TRUSTED_ORIGINS = [    
-    "https://pride-sent-african-vol.trycloudflare.com/", 
-    "https://wilmatch.paragoniu.app",
+    'wilmatch.paragoniu.app',
+    'https://wilmatch.paragoniu.app',
     ]
 
 # Application definition
@@ -66,7 +66,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    #'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
