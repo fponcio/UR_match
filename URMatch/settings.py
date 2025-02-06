@@ -40,6 +40,7 @@ ALLOWED_HOSTS = [
     "wilmatch.paragoniu.app",
     ]
 
+CSRF_COOKIE_SECURE = False
 
 CSRF_TRUSTED_ORIGINS = ['https://wilmatch.paragoniu.app', 'https://pride-sent-african-vol.trycloudflare.com', 'https://127.0.0.1' ]
 CSRF_ALLOWED_ORIGINS = ['https://wilmatch.paragoniu.app']
